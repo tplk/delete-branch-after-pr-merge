@@ -5,7 +5,7 @@ that automatically deletes branch when Pull Request is merged.
 ## Setup
 Create a `.github/delete-branch-after-pr-merge.yml` file
 in default branch of your repository after bot installation via
-[GitHub Apps](https://github.com/marketplace/delete-branch-after-pr-merge).
+[GitHub Apps](https://github.com/apps/delete-branch-after-pr-merge).
 
 #### Default configuration:
 ```yaml

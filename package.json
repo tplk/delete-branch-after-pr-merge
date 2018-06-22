@@ -1,12 +1,13 @@
 {
   "name": "delete-branch-after-pr-merge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GitHub App which automatically deletes branch when Pull Request is merged.",
   "author": "Dmitry Teplov <teplov.work@gmail.com> (https://github.com/tplk)",
   "license": "ISC",
   "repository": "https://github.com/tplk/delete-branch-after-pr-merge.git",
   "scripts": {
     "start": "probot run ./src/index.js",
+    "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) npm start",
     "watch": "nodemon --exec npm start",
     "lint": "eslint ./src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
@@ -32,8 +33,5 @@
   "engines": {
     "node": ">= 8.0.0",
     "npm": ">= 5.0.0"
-  },
-  "now": {
-    "alias": "delete-branch-after-pr-merge"
   }
 }

@@ -1,12 +1,13 @@
 #!/bin/sh
 
-now="npx now --public --token $NOW_TOKEN"
+now="npx now"
+token="--token $NOW_TOKEN"
 
-echo "$ now rm --safe --yes delete-branch-after-pr-merge"
-$now rm --safe --yes delete-branch-after-pr-merge
+echo "$ now rm --yes delete-branch-after-pr-merge"
+$now rm $token --yes delete-branch-after-pr-merge
 
-echo "$ now -e APP_ID -e WEBHOOK_SECRET -e PRIVATE_KEY"
-$now -e APP_ID -e WEBHOOK_SECRET -e PRIVATE_KEY
+echo "$ now --public -e NODE_ENV=production -e APP_ID -e WEBHOOK_SECRET -e PRIVATE_KEY"
+$now $token --public -e NODE_ENV=production -e APP_ID -e WEBHOOK_SECRET -e PRIVATE_KEY
 
-echo "$ now alias"
-$now alias
+echo "$ now alias delete-branch-after-pr-merge"
+$now alias $token delete-branch-after-pr-merge

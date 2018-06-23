@@ -22,32 +22,30 @@ module.exports = function (robot) {
   ], async context => {
     const pr = context.payload.pull_request
 
-    // If Pull Request isn't closed by merging do nothing.
-    if (context.payload.action !== 'closed' && pr.merged !== true) {
-      return
-    }
+    // Delete only if Pull Request is closed by merging.
+    if (context.payload.action === 'closed' && pr.merged === true) {
+      const config = await setupConfig(context)
+      const branchName = pr.head.ref
 
-    const config = await setupConfig(context)
-    const branchName = pr.head.ref
-
-    // Delete only if branch isn't excluded
-    if (config.exclude.indexOf(branchName) < 0) {
-      const head = {
-        ...context.repo(),
-        ref: `heads/${branchName}`,
-      }
-
-      const response = await deleteBranch(context, head)
-
-      if (response.status === 204 && config.comment) {
-        const commentData = {
-          owner: head.owner,
-          repo: head.repo,
-          number: pr.number,
-          body: `Deleted merged branch **${branchName}**`,
+      // Delete only if branch isn't excluded
+      if (config.exclude.indexOf(branchName) < 0) {
+        const head = {
+          ...context.repo(),
+          ref: `heads/${branchName}`,
         }
 
-        return context.github.issues.createComment(commentData)
+        const response = await deleteBranch(context, head)
+
+        if (response.status === 204 && config.comment) {
+          const commentData = {
+            owner: head.owner,
+            repo: head.repo,
+            number: pr.number,
+            body: `Deleted merged branch **${branchName}**`,
+          }
+
+          return context.github.issues.createComment(commentData)
+        }
       }
     }
   })

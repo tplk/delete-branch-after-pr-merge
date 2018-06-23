@@ -1,5 +1,5 @@
-# delete-branch-after-pr-merge
-> a GitHub App built with [probot](https://github.com/probot/probot)
+# delete-branch-after-pr-merge [![Build Status](https://travis-ci.com/tplk/delete-branch-after-pr-merge.svg?branch=master)](https://travis-ci.com/tplk/delete-branch-after-pr-merge)
+A GitHub App built with [probot](https://github.com/probot/probot)
 that automatically deletes branch when Pull Request is merged.
 
 ## Setup

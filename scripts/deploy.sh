@@ -3,6 +3,9 @@
 now="npx now"
 token="--token $NOW_TOKEN"
 
+echo "$ now switch delete-branch-after-pr-merge"
+$now switch $token delete-branch-after-pr-merge
+
 echo "$ now rm --yes delete-branch-after-pr-merge"
 $now rm $token --yes delete-branch-after-pr-merge
 

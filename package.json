@@ -2,7 +2,7 @@
   "name": "delete-branch-after-pr-merge",
   "version": "0.0.3",
   "description": "GitHub App which automatically deletes branch when Pull Request is merged.",
-  "author": "Dmitry Teplov <teplov.work@gmail.com> (https://github.com/tplk)",
+  "author": "Dmitry Teplov <siht.pilf@gmail.com> (https://github.com/tplk)",
   "license": "ISC",
   "repository": "https://github.com/tplk/delete-branch-after-pr-merge.git",
   "scripts": {

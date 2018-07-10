@@ -15,3 +15,4 @@ exclude:
 # If set to true bot will leave a comment after deleting merged branch.
 comment: true
 ```
+test
